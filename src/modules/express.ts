@@ -1,6 +1,15 @@
-const express = require("express");
+import e, { NextFunction, Request, Response } from "express";
+//import UserModel from "../models/User.Modal";
 
-const app = express();
+interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
+const port: number = 8080;
+const app = e();
 
 app.get("/home", (req, res) => {
   res.contentType("text/html");
@@ -10,7 +19,7 @@ app.get("/home", (req, res) => {
 app.get("/users", (req, res) => {
   const users = [
     {
-      name: "Dione",
+      name: "DioneWithExpress",
       email: "dione@compact.jr",
     },
     {
@@ -22,6 +31,5 @@ app.get("/users", (req, res) => {
   res.status(200).json(users);
 });
 
-const port = 8080;
-
+// esta variável port foi declarada no arquivo http.ts
 app.listen(port, () => console.log(`Rodando com express na porta ${port}`));

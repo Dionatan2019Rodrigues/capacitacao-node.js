@@ -1,10 +1,10 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
 // Criar uma pasta
-fs.mkdir(path.join(__dirname, "/test"), (error) => {
-  if (error) {
-    return console.log("Erro: ", error);
+fs.mkdir(path.join(__dirname, "/test"), (err) => {
+  if (err) {
+    return console.log("Erro: ", err);
   }
   console.log("Pasta criada com sucesso");
 });
@@ -13,9 +13,9 @@ fs.mkdir(path.join(__dirname, "/test"), (error) => {
 fs.writeFile(
   path.join(__dirname, "/test", "test.txt"),
   "Hello Node!",
-  (error) => {
-    if (error) {
-      return console.log("Erro: ", error);
+  (err) => {
+    if (err) {
+      return console.log("Erro: ", err);
     }
     console.log("Arquivo criado com sucesso");
 
@@ -23,8 +23,8 @@ fs.writeFile(
     fs.appendFile(
       path.join(__dirname, "/test", "test.txt"),
       "Hello add",
-      (error) => {
-        if (error) return console.log("Erro: ", error);
+      (err) => {
+        if (err) return console.log("Erro: ", err);
         console.log("Texto Adicionado com sucesso");
       }
     );
@@ -33,8 +33,8 @@ fs.writeFile(
     fs.readFile(
       path.join(__dirname, "/test", "test.txt"),
       "utf-8",
-      (error, data) => {
-        if (error) console.log("Erro: ", error);
+      (err, data) => {
+        if (err) console.log("Erro: ", err);
         console.log(data);
       }
     );

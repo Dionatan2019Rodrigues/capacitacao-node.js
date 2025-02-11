@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 // Apenas o nome do arquivo tual
 console.log(path.basename(__filename));

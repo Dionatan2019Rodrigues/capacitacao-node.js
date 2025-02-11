@@ -1,14 +1,19 @@
-const http = require("http");
+import htttp from "http";
 
-const port = 8080;
+const port: number = 8080;
 
-const server = http.createServer((req, res) => {
+interface User {
+  name: string;
+  email: string;
+}
+
+const server = htttp.createServer((req, res) => {
   if (req.url === "/home") {
     res.writeHead(200, { "content-type": "text/html" });
     res.end("<h1>Home page</h1>");
   }
   if (req.url === "/users") {
-    const users = [
+    const users: User[] = [
       {
         name: "Dione",
         email: "dione@compact.jr",
